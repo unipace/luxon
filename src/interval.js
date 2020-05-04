@@ -232,8 +232,8 @@ export default class Interval {
 
   /**
    * Split this Interval at each of the specified DateTimes
-   * @param {...[DateTime]} dateTimes - the unit of time to count.
-   * @return {[Interval]}
+   * @param {...DateTime} dateTimes - the unit of time to count.
+   * @return {Array}
    */
   splitAt(...dateTimes) {
     const sorted = dateTimes
@@ -259,7 +259,7 @@ export default class Interval {
    * Split this Interval into smaller Intervals, each of the specified length.
    * Left over time is grouped into a smaller interval
    * @param {Duration|Object|number} duration - The length of each resulting interval.
-   * @return {[Interval]}
+   * @return {Array}
    */
   splitBy(duration) {
     const dur = friendlyDuration(duration);
@@ -286,7 +286,7 @@ export default class Interval {
   /**
    * Split this Interval into the specified number of smaller intervals.
    * @param {number} numberOfParts - The number of Intervals to divide the Interval into.
-   * @return {[Interval]}
+   * @return {Array}
    */
   divideEqually(numberOfParts) {
     return this.splitBy(this.length() / numberOfParts).slice(0, numberOfParts);
@@ -370,8 +370,8 @@ export default class Interval {
   /**
    * Merge an array of Intervals into a equivalent minimal set of Intervals.
    * Combines overlapping and adjacent Intervals.
-   * @param {[Interval]} intervals
-   * @return {[Interval]}
+   * @param {Array} intervals
+   * @return {Array}
    */
   static merge(intervals) {
     const [found, final] = intervals.sort((a, b) => a.s - b.s).reduce(
@@ -394,8 +394,8 @@ export default class Interval {
 
   /**
    * Return an array of Intervals representing the spans of time that only appear in one of the specified Intervals.
-   * @param {[Interval]} intervals
-   * @return {[Interval]}
+   * @param {Array} intervals
+   * @return {Array}
    */
   static xor(intervals) {
     let start = null,
@@ -425,7 +425,7 @@ export default class Interval {
   /**
    * Return an Interval representing the span of time in this Interval that doesn't overlap with any of the specified Intervals.
    * @param {...Interval} intervals
-   * @return {[Interval]}
+   * @return {Array}
    */
   difference(...intervals) {
     return Interval.xor([this].concat(intervals))

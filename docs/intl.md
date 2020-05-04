@@ -10,7 +10,7 @@ DateTime.local()
 
 ## Making sure you have access to other locales
 
-Please see the [install guide](install.html) for instructions on making sure your platform has access to the Intl APIs and the ICU data to power it. This especially important for Node, which doesn't ship with ICU data by default.
+Please see the [install guide](install.md) for instructions on making sure your platform has access to the Intl APIs and the ICU data to power it. This especially important for Node, which doesn't ship with ICU data by default.
 
 ## How locales work
 
@@ -106,7 +106,7 @@ dt.setLocale("fr").toFormat("MMMM dd, yyyy GG"); //=> 'septembre 25, 2017 après
 
 ### Parsing
 
-You can [parse](parsing.html) localized strings:
+You can [parse](parsing.md) localized strings:
 
 ```js
 DateTime.fromFormat("septembre 25, 2017 après Jésus-Christ", "MMMM dd, yyyy GG", { locale: "fr" });
@@ -114,7 +114,7 @@ DateTime.fromFormat("septembre 25, 2017 après Jésus-Christ", "MMMM dd, yyyy GG
 
 ### Listing
 
-Some of the methods in the [Info](../class/src/info.js~Info.html) class let you list strings like months, weekdays, and eras, and they can be localized:
+Some of the methods in the `Info` class let you list strings like months, weekdays, and eras, and they can be localized:
 
 ```js
 Info.months("long", { locale: "fr" }); //=> [ 'janvier', 'février', ...
