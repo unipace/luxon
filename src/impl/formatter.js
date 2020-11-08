@@ -131,7 +131,7 @@ export default class Formatter {
   formatDateTimeFromString(dt, fmt) {
     const knownEnglish = this.loc.listingMode() === "en",
       useDateTimeFormatter =
-        this.loc.outputCalendar && this.loc.outputCalendar !== "gregory" /*&& this.loc.outputCalendar !== "persian"*/ && hasFormatToParts(),
+        this.loc.outputCalendar && this.loc.outputCalendar !== "gregory" && hasFormatToParts(),
       string = (opts, extract) => this.loc.extract(dt, opts, extract),
       formatOffset = opts => {
         if (dt.isOffsetFixed && dt.offset === 0 && opts.allowZ) {
